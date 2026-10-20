@@ -1,6 +1,6 @@
 # UOPfree
 
-**UOPfree** is an independent community modification for **OPPO UDP-203 devices running the RU-JB 65-0131 jailbreak environment with `jb_overlay`**. It activates the player's existing **UOP-free mode in RAM** to bypass applicable disc-authored User Operation Prohibitions (UOPs). Unlocking **STOP** during otherwise restricted Blu-ray playback is a confirmed example; the underlying UOP mode is not limited to that button.
+**UOPfree** is an independent community modification for **OPPO UDP-203 devices running the RU-JB 65-0131 jailbreak environment with `jb_overlay`**. It bypasses Blu-ray User Operation Prohibitions (UOPs) through a lightweight RAM-only modification, unlocking restricted playback controls such as STOP.
 
 > **Risk:** This is unofficial software. It writes four bytes to a running player process after strict compatibility checks and adds a guarded two-line startup entry to the jailbreak overlay. RAM modification or an unexpected boot environment can cause instability. Have a working recovery route before installation.
 
