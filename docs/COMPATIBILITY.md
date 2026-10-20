@@ -7,6 +7,8 @@ UOPfree 1.0.0 is intended for **OPPO UDP-203 hardware with RU-JB 65-0131, `jb_ov
 | Media or condition | Evidence |
 | --- | --- |
 | Physical Blu-ray sections that block STOP | STOP unlocked on real hardware |
+| MENU on an opening license/notice screen | Maintainer-confirmed live example where UOP had blocked MENU; no separate device log retained |
+| NEXT on UOP-blocked introductory cards | Maintainer-confirmed live example of skipping those cards; no separate device log retained |
 | Blu-ray ISO playback | STOP behavior confirmed on hardware |
 | BDMV folder playback | STOP behavior confirmed on hardware |
 | Ejecting and reinserting within one player process | RAM mode 1 remained active |
@@ -19,7 +21,7 @@ The published USB ZIPs retain every executable member byte-for-byte. Their archi
 ## Not a universal compatibility promise
 
 - Other hardware, firmware variants, patched `bdpprog.1` images, or differing memory maps have not been verified by this release.
-- Some discs enforce controls through title or BD-J logic beyond the internal UOP mask; NEXT/SKIP is not guaranteed.
+- UOPfree can restore STOP, MENU and NEXT when these controls are UOP-blocked. It cannot create chapters or navigation targets, and separate title/BD-J logic can still limit an operation.
 - A full process restart or another concurrent modification may reset the RAM mode after the one-shot startup script has exited. UOPfree intentionally does not poll continuously.
 - An unusual overlay setup may start the script later than desired if network/USB initialization delays `autostart.sh`.
 

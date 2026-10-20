@@ -55,7 +55,7 @@ A successful readback confirms the internal RAM value; it is **not** universal c
 
 ## 5. The runtime passes, but an operation remains restricted
 
-UOPfree changes the internal UOP mask; discs or BD-J applications may impose separate navigation rules. A short clip may have no next chapter, so NEXT/SKIP cannot be guaranteed. Check a known UOP-restricted sequence and whether another runtime modification has reset the UOP state. The intentionally one-shot design does not monitor it thereafter.
+UOPfree has been reported to restore STOP, MENU and NEXT where disc-authored UOP restrictions blocked them. If a control remains unavailable, check whether the screen uses a separate BD-J/title rule or whether NEXT lacks a valid chapter or navigation target. Confirm that the runtime succeeded and that another modification has not reset the UOP value: the one-shot script does not monitor it continuously.
 
 There was a conditional reset reported during a concurrent experimental patch/resume-cancellation scenario; that has not been established as a defect of UOPfree in a clean supported startup. See [Known limitations](research/KNOWN_LIMITATIONS.md).
 

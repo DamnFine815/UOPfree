@@ -2,7 +2,7 @@
 
 ## Functional and packaging evidence
 
-The maintainer reports UOPfree's current operation tested live on the supported OPPO UDP-203 environment. The development record specifically includes a confirmed one-shot UOP RAM change and successful STOP on physical discs, ISO and BDMV. It also records real runtime startup and disc reinsertion/reboot behavior. It does not retain a separate complete hardware log for every branch of the final USB installation and removal scripts; see [Test evidence](research/TEST_EVIDENCE.md).
+The maintainer reports UOPfree tested live on the supported OPPO UDP-203. The original development record documents the one-shot UOP RAM change and STOP working on physical discs, ISO and BDMV, plus runtime startup and disc reinsertion/reboot behavior. In a later direct report, the maintainer additionally confirmed MENU on an opening license/notice screen and NEXT skipping UOP-blocked introductory cards. Those newer examples have no separately archived device logs or media-type records. The handoff also lacks a complete log for every final USB install/uninstall branch; see [Test evidence](research/TEST_EVIDENCE.md).
 
 The published USB archives retain **byte-identical functional files**, including the same uncompressed and compressed bytes, CRCs, timestamps and permissions as the supplied working payloads. Both archive envelopes and their manifests passed fresh offline checks; this package verification did not include a separate USB power-on test.
 

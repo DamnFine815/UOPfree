@@ -57,7 +57,7 @@ Do not create an extra parent folder around `AutoScript/`. The installer and uni
 | `FAILED` | Installation aborted; inspect `UOPfree-install.log` |
 
 5. Remove the USB stick. Perform a **full power cycle** before testing UOP-restricted playback. Merely opening the tray does not prove installation was successful.
-6. Verify a familiar UOP-restricted sequence. STOP is the documented live-test example; the modification targets the UOP mask more generally.
+6. Verify a familiar UOP-restricted sequence: STOP during a locked intro, MENU on an initial license/notice screen, or NEXT to advance through UOP-blocked introductory cards when a valid destination exists.
 
 The installer requests tray eject only after writing and syncing a successful result. If `cliprog` is unavailable or does not open the tray, the result file remains authoritative.
 

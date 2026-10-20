@@ -1,10 +1,12 @@
 # Frequently asked questions
 
-**What does UOPfree do?**  It enables the player's UOP-free RAM mode to bypass applicable disc-authored User Operation Prohibitions. Unlocking STOP in restricted Blu-ray sequences is a confirmed example, not the entire purpose of the modification.
+**What does UOPfree do?**  It bypasses Blu-ray User Operation Prohibitions (UOPs) using a lightweight RAM-only change. The maintainer confirmed STOP during restricted playback, MENU from an opening license/notice screen and NEXT past UOP-blocked introductory cards.
 
-**Does this automatically skip every logo or advertisement?**  No. It changes the internal UOP mask; it does not create a missing NEXT chapter, change a BD-J navigation handler, or jump to a new playlist.
+**Can NEXT skip studio logos, copyright notices or introductory cards?**  **Yes, when UOP is what blocks NEXT and the disc provides a valid navigation target.** This has been confirmed by the maintainer. UOPfree cannot invent a missing chapter, bypass independent BD-J navigation logic or guarantee skipping every screen.
 
-**Does it work with ISO and BDMV?**  UOPfree changes the running player's UOP mode. The maintainer confirmed STOP as a tested example on physical discs, ISO images and BDMV folders. UOPfree does not supply ISO/BDMV mounting or other virtual-media infrastructure.
+**Can MENU be opened during an initial license or warning screen?**  The maintainer confirmed that MENU could be used on a screen where a UOP restriction would normally prevent it. Separate BD-J behavior may vary by title.
+
+**Does it work with ISO and BDMV?**  UOPfree changes the running player's UOP mode. STOP was confirmed with physical discs, ISO images and BDMV folders; the newer MENU/NEXT examples were not separately classified by media type. UOPfree does not supply ISO/BDMV mounting or other virtual-media infrastructure.
 
 **Does it modify firmware or replace `bdpprog.1`?**  No. The one-shot runtime writes a four-byte data value in the compatible live process and exits. Installation separately appends two lines to the existing `jb_overlay/autostart.sh`.
 
