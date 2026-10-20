@@ -10,6 +10,8 @@
 | Reboot reset volatile mode | Hardware observation | [Test evidence](TEST_EVIDENCE.md) |
 | Automated one-shot startup succeeded | Hardware runtime log | [Architecture](ARCHITECTURE.md), [Test evidence](TEST_EVIDENCE.md) |
 | STOP worked for tested physical disc, ISO and BDMV playback | Hardware playback | [Test evidence](TEST_EVIDENCE.md); no universal guarantee |
+| MENU could be opened on an initial license/notice screen | Later direct maintainer confirmation | [Test evidence](TEST_EVIDENCE.md); no separate device log or media-type record |
+| NEXT skipped UOP-blocked introductory cards | Later direct maintainer confirmation | [Test evidence](TEST_EVIDENCE.md); assumes an authored next destination, no separate device log |
 | Final installer/uninstaller functionality | Maintainer report | [Test evidence](TEST_EVIDENCE.md); not all final branch logs retained |
 | Concurrent experimental patch once coincided with mode reset | Conditional hardware observation | [Known limitations](KNOWN_LIMITATIONS.md); cause not proven |
 | Published USB archives preserve functional payload bytes | Exact archive comparison | [Release engineering](RELEASE_ENGINEERING.md) |

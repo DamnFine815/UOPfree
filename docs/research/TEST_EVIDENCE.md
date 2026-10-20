@@ -8,6 +8,8 @@ This is a curated list of evidence from the development handoff plus the maintai
 | UOP RAM before change | Repeated hardware readback | Four bytes `00 00 00 00` |
 | One guarded RAM write | Hardware action plus readback | Changed to `01 00 00 00` |
 | Physical Blu-ray with STOP initially blocked | Hardware playback | STOP became usable immediately after the RAM change |
+| MENU during an opening license/notice screen | Later direct maintainer report of live playback; no separately retained device log | MENU could be opened despite a UOP-based restriction |
+| NEXT on introductory notice/title cards | Later direct maintainer report of live playback; no separately retained device log | NEXT skipped material where disc-authored UOP had blocked it; valid next destination required |
 | Disc eject/reinsert in one process | Hardware readback and playback | Mode 1 and STOP behavior persisted |
 | Full player restart | Hardware observation | Volatile UOP value reverted; startup reapplication required |
 | Automated overlay startup | Hardware log | One-shot script emitted `RESULT=PASS RAM_ONLY_FILES_UNCHANGED` |
@@ -25,9 +27,9 @@ During **concurrent experimental player-memory patching** and disc resume cancel
 ## What the evidence does not say
 
 - It does not establish compatibility with every Blu-ray title, pressing or BD-J application.
-- It does not promise NEXT/SKIP when a clip lacks an alternate chapter or playlist navigation.
+- NEXT can skip UOP-locked material as observed, but cannot advance where the disc provides no next chapter or other navigation target. MENU can likewise be constrained by rules unrelated to UOP.
 - The mode mapping and addresses are based on one supported firmware environment, not an official universal API.
 - A successful CRC/hash/source rebuild does not replace USB boot or playback testing on physical hardware.
 - The published archive identities and functional payload bytes were verified offline. This does not constitute an additional physical USB-boot test of the final release archives.
 
-Future reports should state the exact disc/source, firmware environment, before/after UOP value, runtime result, timing of player startup and whether any simultaneous mod was active. See [Evidence register](EVIDENCE_REGISTER.md) and [Known limitations](KNOWN_LIMITATIONS.md).
+Future reports should identify the blocked control (STOP, MENU, NEXT, etc.), disc/source, firmware environment, UOP value, runtime result, player-start timing and whether another mod was active. The newer MENU/NEXT confirmations do not independently establish every disc/media-type combination. See [Evidence register](EVIDENCE_REGISTER.md) and [Known limitations](KNOWN_LIMITATIONS.md).

@@ -2,7 +2,7 @@
 
 ## Practical purpose
 
-On some Blu-ray intros, studio logos and legal notices, disc-authored UOP restrictions can disable normal player controls such as **STOP**. On the supported OPPO UDP-203 player, inspection identified an internal `uopmask` mode which can be selected directly in RAM.
+On some Blu-ray intros, studio logos and legal/license notices, disc-authored UOP restrictions can disable **STOP**, **MENU** and **NEXT**. UOPfree selects the supported player's `uopmask` mode in RAM to bypass those UOP-based restrictions; it does not alter the disc's authored navigation destinations.
 
 This behavior mapping is an observation of the supported native player, **not an official, general-purpose OPPO programming API**:
 
@@ -37,6 +37,8 @@ The data value lies inside an anonymous read-write-execute area, and the signatu
 - Eject/reinsert in the same player session preserved `01 00 00 00` and STOP functionality.
 - A full player restart cleared the volatile mode, which justified a one-shot startup application instead of a persistent firmware modification.
 
+In a later direct maintainer report, **MENU** was usable on an initial license/notice screen and **NEXT** skipped introductory cards normally blocked by UOP. Unlike the original STOP/RAM proof, these later examples were not accompanied by separate archived before/after device logs and are identified as maintainer-confirmed live behavior.
+
 This provides strong, local evidence for **the tested behavior**, not universal compatibility with every authoring style or firmware.
 
 ## Optional read-only diagnostics
@@ -52,7 +54,7 @@ dd if="/proc/$P/mem" bs=4 skip=$((0x01281638 / 4)) count=1 2>/dev/null | hexdump
 dd if="/proc/$P/mem" bs=4 skip=$((0x001527A0 / 4)) count=3 2>/dev/null | hexdump -C
 ```
 
-Do not use these addresses as a manual write recipe on unknown builds. A readback demonstrates a state value, not a proof that a particular title will implement its navigation or STOP behavior solely through UOP.
+Do not use these addresses as a manual write recipe on unknown builds. A readback demonstrates a state value, not proof that a particular title implements STOP, MENU or NEXT solely through UOP.
 
 ## Why only one write?
 

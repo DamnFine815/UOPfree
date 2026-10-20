@@ -27,7 +27,7 @@ The exact ordering of asynchronous startup work is environment-dependent. `start
 6. Recheck PID and prior state, write `01 00 00 00` **once**, then read back and confirm the value.
 7. Exit. No installed resident monitor or automatic re-arm is provided.
 
-The script is a shell-side orchestration of existing native player state. It does not install a code hook, modify ARM instructions, patch firmware partitions, or rewrite the native player file.
+The script changes the player's UOP mask, rather than targeting an individual remote-control button. Confirmed UOP-blocked examples include STOP, MENU and NEXT; the availability of a next chapter or independent BD-J navigation is determined by the disc. It does not install a code hook, modify ARM instructions, patch firmware partitions, or rewrite the native player file.
 
 ## Installed footprint
 

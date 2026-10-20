@@ -2,7 +2,7 @@
 
 ## 1.0.0 — 2026-10-20
 
-- Released **UOPfree** as a one-shot RAM-only UOP mode selector for the supported OPPO UDP-203 RU-JB 65-0131 environment.
+- Released **UOPfree** as a one-shot RAM-only UOP bypass for the supported OPPO UDP-203 RU-JB 65-0131 environment, with maintainer-confirmed examples involving STOP, MENU and NEXT.
 - Preserved the live-tested 4-byte RAM method and strict 12-byte original-code / process-layout checks.
 - Installed only `/mnt/ubi_boot/UOPfree/start.sh` and the exact `#UOPfree` two-line autostart entry.
 - Added separate guarded USB AutoScript installer and uninstaller with result logs and success-only tray request.

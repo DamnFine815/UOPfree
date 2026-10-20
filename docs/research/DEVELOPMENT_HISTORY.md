@@ -20,7 +20,7 @@ The guarded four-byte RAM operation changed the observed UOP mode from 0 to 1. S
 
 ## 5. Reliable automatic startup
 
-A small shell script reproduced the RAM operation during normal jailbreak-overlay startup: find the exact player, wait for initialization, check file size/mappings/instruction bytes, verify the expected starting value, write four data bytes, read back and exit. A live log recorded a successful `RESULT=PASS`; physical discs, ISO playback and BDMV folders were subsequently tested for STOP behavior.
+A small shell script reproduced the RAM operation during normal jailbreak-overlay startup: find the exact player, wait for initialization, check file size/mappings/instruction bytes, verify the expected starting value, write four data bytes, read back and exit. A live log recorded a successful `RESULT=PASS`; physical discs, ISO playback and BDMV folders were subsequently tested for STOP behavior. The maintainer later also confirmed MENU access during an initial license/notice screen and NEXT skipping introductory cards blocked by UOP. These newer examples are direct user-reported live outcomes, not separate archived before/after logs.
 
 ## 6. Isolate concurrent-mod interference
 
@@ -34,6 +34,6 @@ Separate guarded installation/removal AutoScripts stage backups, verify known ha
 
 ## 8. Non-goals retained
 
-UOPfree does not create chapters, force NEXT/SKIP when no target exists, rewrite `bdpprog.1`, patch the system firmware, install ISO/BDMV support, modify other mods, implement an early boot process hook, or run a permanent watchdog.
+UOPfree restores UOP-blocked operations, including NEXT where observed, but does not create missing chapters or override unrelated BD-J navigation. It does not rewrite `bdpprog.1`, patch system firmware, install ISO/BDMV support, modify other mods, implement an early-boot process hook or run a permanent watchdog.
 
 See [Architecture](ARCHITECTURE.md), [Test evidence](TEST_EVIDENCE.md), [Release engineering](RELEASE_ENGINEERING.md), and [Known limitations](KNOWN_LIMITATIONS.md).
