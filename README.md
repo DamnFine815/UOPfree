@@ -1,21 +1,23 @@
 # UOPfree
 
-**UOPfree** is an independent community modification for **OPPO UDP-203 devices running the RU-JB 65-0131 jailbreak environment with `jb_overlay`**. It bypasses Blu-ray User Operation Prohibitions (UOPs) through a lightweight RAM-only modification, unlocking restricted playback controls such as STOP.
+**UOPfree** is an independent community modification for **OPPO UDP-203 devices running the RU-JB 65-0131 jailbreak environment with `jb_overlay`**. It bypasses Blu-ray User Operation Prohibitions (UOPs) through a lightweight RAM-only modification, enabling controls such as **STOP**, **MENU** and **NEXT** when UOP restrictions would otherwise block them.
 
 > **Risk:** This is unofficial software. It writes four bytes to a running player process after strict compatibility checks and adds a guarded two-line startup entry to the jailbreak overlay. RAM modification or an unexpected boot environment can cause instability. Have a working recovery route before installation.
 
 ## Why use it?
 
-Some Blu-ray intros, studio logos and copyright notices prohibit STOP. With UOPfree active, the maintainer was able to stop tested physical Blu-ray Discs, ISO images and BDMV folders without ejecting a disc to escape the restriction.
+Some Blu-ray intros, studio logos and license/notice screens use UOP flags to block controls such as STOP, MENU or NEXT. The maintainer confirmed **STOP** during restricted playback, **MENU** from an opening license/notice screen and **NEXT** to skip introductory cards when UOP was the obstacle. STOP was tested on physical Blu-ray Discs, ISO images and BDMV folders; the precise media types of the newer MENU/NEXT examples were not separately recorded.
 
 | Situation | Ordinary disc-enforced behavior | UOPfree on tested material |
 | --- | --- | --- |
-| STOP blocked during a Blu-ray intro or notice | STOP can be refused | **STOP works** |
-| Eject and reinsert a disc in the same player session | UOP restrictions may apply again | One-shot RAM setting remained active |
-| Full player restart | Default UOP state returns | UOPfree applies mode 1 again at startup |
-| Short studio clip without another chapter | NEXT may have nowhere to go | **No artificial chapter or NEXT target is created** |
+| STOP blocked during an intro or notice | Disc UOP refuses STOP | **STOP works** on tested UOP-restricted playback |
+| MENU blocked on an opening license/notice screen | Disc UOP prevents opening the menu | **MENU can be opened** in the maintainer's tested example |
+| NEXT blocked on introductory title/notice cards | Disc UOP prevents advancing | **NEXT skips those cards** in the maintainer's tested example |
+| Eject and reinsert a disc in the same player session | UOP restrictions can apply again by default | One-shot RAM setting remained active |
+| Full player restart | Default UOP state returns | UOPfree reapplies mode 1 at startup |
+| A clip with no next chapter or navigation target | There is nowhere to advance | UOPfree does **not** create missing navigation targets |
 
-UOPfree changes the player's UOP mask, not a disc's chapters or arbitrary BD-J application logic. It cannot create missing navigation targets or guarantee NEXT/SKIP and other operations on every title. It does not bypass AACS/Cinavia or Blu-ray region coding.
+UOPfree bypasses UOP-based prohibitions; it does not rewrite a disc's chapters or independent BD-J application logic. **NEXT can skip UOP-locked material when a valid destination exists**, but it cannot advance to a chapter that the disc has not authored. It does not bypass AACS/Cinavia or Blu-ray region coding.
 
 ## How it works
 
@@ -34,7 +36,7 @@ The RAM state itself is temporary: a full reboot clears the previous state; the 
 - The expected executable size, live memory mappings, instruction bytes and initial RAM state must match. **A similar firmware version string alone is not a compatibility guarantee.**
 - An independent backup or recovery route for the installed jailbreak environment.
 
-The documented live observations cover physical discs, ISO and BDMV playback on the specified setup. Other devices and modified player builds have not been validated by this release. See [Compatibility](docs/COMPATIBILITY.md) and [Test evidence](docs/research/TEST_EVIDENCE.md).
+Documented STOP tests cover physical discs, ISO and BDMV playback; additional direct maintainer reports cover MENU and NEXT on UOP-restricted opening screens. Other devices and modified player builds have not been validated by this release. See [Compatibility](docs/COMPATIBILITY.md) and [Test evidence](docs/research/TEST_EVIDENCE.md).
 
 ## Downloads
 
@@ -53,7 +55,7 @@ Never combine the install and uninstall packages' `AutoScript/` directories on o
 3. Insert the USB stick with the player fully powered off, then power on.
 4. Read **`UOPfree-install-result.txt`** on the stick. `INSTALLED`, `UPGRADED` and `ALREADY_INSTALLED` are success states; for failures read `UOPfree-install.log`.
 5. Remove the USB stick and perform another full power cycle to activate the new startup entry.
-6. Check a representative UOP-restricted sequence after reboot; STOP is the control documented in the live hardware tests.
+6. Check a familiar UOP-restricted sequence: for example, STOP during a locked intro, MENU on an opening notice, or NEXT to skip UOP-locked cards when a next target is available.
 
 After a successful install, the tray may open automatically. **Tray movement is only a convenience signal, not proof of success**: always check the result file.
 
