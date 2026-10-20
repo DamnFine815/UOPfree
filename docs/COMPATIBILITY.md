@@ -14,7 +14,7 @@ UOPfree 1.0.0 is intended for **OPPO UDP-203 hardware with RU-JB 65-0131, `jb_ov
 | Earlier automated one-shot startup | Successful hardware runtime log and STOP tests |
 | Final install/uninstall release workflows | Maintainer reports live testing; detailed historical handoff does not retain every final package log |
 
-The README-free download ZIPs retain every executable member byte-for-byte. Their new outer archive wrappers and manifests were independently validated offline, not re-booted on-device as part of this packaging step.
+The published USB ZIPs retain every executable member byte-for-byte. Their archive structure and manifests were validated offline; this package verification did not include a separate USB boot on the player.
 
 ## Not a universal compatibility promise
 

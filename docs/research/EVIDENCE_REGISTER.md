@@ -12,7 +12,7 @@
 | STOP worked for tested physical disc, ISO and BDMV playback | Hardware playback | [Test evidence](TEST_EVIDENCE.md); no universal guarantee |
 | Final installer/uninstaller functionality | Maintainer report | [Test evidence](TEST_EVIDENCE.md); not all final branch logs retained |
 | Concurrent experimental patch once coincided with mode reset | Conditional hardware observation | [Known limitations](KNOWN_LIMITATIONS.md); cause not proven |
-| USB payload member bytes were unchanged by README removal | Exact archive comparison | [Release engineering](RELEASE_ENGINEERING.md) |
+| Published USB archives preserve functional payload bytes | Exact archive comparison | [Release engineering](RELEASE_ENGINEERING.md) |
 | New USB release ZIPs have valid CRC and internal manifests | Fresh offline test | [Verification](../VERIFICATION.md) |
 | Both ZIPs reproducible from source at the same SHA-256 | Fresh deterministic source build | [Build and provenance](../BUILD_AND_PROVENANCE.md) |
 

@@ -4,7 +4,7 @@
 
 The maintainer reports UOPfree's current operation tested live on the supported OPPO UDP-203 environment. The development record specifically includes a confirmed one-shot UOP RAM change and successful STOP on physical discs, ISO and BDMV. It also records real runtime startup and disc reinsertion/reboot behavior. It does not retain a separate complete hardware log for every branch of the final USB installation and removal scripts; see [Test evidence](research/TEST_EVIDENCE.md).
 
-The publicly prepared **README-free ZIPs** were derived from the supplied final install/uninstall ZIPs. The only modifications were deleting `README.md` from each archive and regenerating `SHA256SUMS_RELEASE` without the deleted line. Every retained functional file has **identical uncompressed bytes, compressed bytes, CRC, timestamps and permission metadata**. The new ZIP envelopes have passed fresh offline tests; this repack operation itself did not involve a new USB power-on test.
+The published USB archives retain **byte-identical functional files**, including the same uncompressed and compressed bytes, CRCs, timestamps and permissions as the supplied working payloads. Both archive envelopes and their manifests passed fresh offline checks; this package verification did not include a separate USB power-on test.
 
 ## Published release SHA-256
 
@@ -13,7 +13,7 @@ The publicly prepared **README-free ZIPs** were derived from the supplied final 
 30c28aa3410fb32df0953a93fc68f1f8cf50a126b592eaf54ad4c5d534561c4b  UOPfree-1.0.0-uninstall.zip
 ```
 
-The install package has **6 ZIP members** with **5/5** checksums in `SHA256SUMS_RELEASE`; the uninstall package has **4 ZIP members** with **3/3**. Both pass ZIP CRC and path/symlink checks. No `README.md` remains inside either ZIP.
+The install package has **6 ZIP members** with **5/5** checksums in `SHA256SUMS_RELEASE`; the uninstall package has **4 ZIP members** with **3/3**. Both pass ZIP CRC and path/symlink checks.
 
 ## Immutable installed runtime
 
@@ -54,7 +54,7 @@ To check installed script/hash and launcher block, separately copy the installer
 sh /tmp/CHECK_READONLY.sh
 ```
 
-`UOPFREE_READONLY_CHECK=PASS` checks file and autostart integrity; it does **not** certify successful STOP playback, verify the firmware compatibility of an uninstalled device, or guarantee that no later memory reset occurred. The original checker includes one historical diagnostic string in a failure branch; it has intentionally been left byte-identical to the supplied live-tested payload.
+`UOPFREE_READONLY_CHECK=PASS` checks file and autostart integrity; it does **not** certify successful playback-control behavior, verify the firmware compatibility of an uninstalled device, or guarantee that no later memory reset occurred. The original checker includes one historical diagnostic string in a failure branch; it has intentionally been left byte-identical to the supplied live-tested payload.
 
 ## Limits of verification
 

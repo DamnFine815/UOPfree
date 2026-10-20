@@ -1,6 +1,6 @@
 # UOPfree
 
-**UOPfree** is an independent community modification for **OPPO UDP-203 devices running the RU-JB 65-0131 jailbreak environment with `jb_overlay`**. It relaxes User Operation Prohibition (UOP) restrictions by enabling the player's existing UOP-free mode **in RAM**, making the **STOP** button usable in tested Blu-ray sequences that would otherwise lock it out.
+**UOPfree** is an independent community modification for **OPPO UDP-203 devices running the RU-JB 65-0131 jailbreak environment with `jb_overlay`**. It activates the player's existing **UOP-free mode in RAM** to bypass applicable disc-authored User Operation Prohibitions (UOPs). Unlocking **STOP** during otherwise restricted Blu-ray playback is a confirmed example; the underlying UOP mode is not limited to that button.
 
 > **Risk:** This is unofficial software. It writes four bytes to a running player process after strict compatibility checks and adds a guarded two-line startup entry to the jailbreak overlay. RAM modification or an unexpected boot environment can cause instability. Have a working recovery route before installation.
 
@@ -15,7 +15,7 @@ Some Blu-ray intros, studio logos and copyright notices prohibit STOP. With UOPf
 | Full player restart | Default UOP state returns | UOPfree applies mode 1 again at startup |
 | Short studio clip without another chapter | NEXT may have nowhere to go | **No artificial chapter or NEXT target is created** |
 
-UOPfree is **not** a general-purpose Blu-ray navigation patch. It cannot guarantee NEXT/SKIP, override arbitrary BD-J application decisions, create chapters, or bypass AACS/Cinavia or Blu-ray region coding.
+UOPfree changes the player's UOP mask, not a disc's chapters or arbitrary BD-J application logic. It cannot create missing navigation targets or guarantee NEXT/SKIP and other operations on every title. It does not bypass AACS/Cinavia or Blu-ray region coding.
 
 ## How it works
 
@@ -44,7 +44,7 @@ Use the **release assets**, not GitHub's automatically generated **Source code (
 - **[`UOPfree-1.0.0-uninstall.zip`](https://github.com/DamnFine815/UOPfree/releases/download/v1.0.0/UOPfree-1.0.0-uninstall.zip)** — separate USB uninstaller; leaves unrelated startup lines intact.
 - **[`SHA256SUMS`](https://github.com/DamnFine815/UOPfree/releases/download/v1.0.0/SHA256SUMS)** — published archive fingerprints.
 
-The USB ZIPs intentionally contain **no bundled README**. All instructions are here and in `docs/`. Never combine their two `AutoScript/` directories on one USB stick. For full steps see [Installation](docs/INSTALLATION.md) and [Uninstallation](docs/UNINSTALLATION.md).
+Never combine the install and uninstall packages' `AutoScript/` directories on one USB stick. For full steps see [Installation](docs/INSTALLATION.md) and [Uninstallation](docs/UNINSTALLATION.md).
 
 ## Installation at a glance
 
@@ -53,7 +53,7 @@ The USB ZIPs intentionally contain **no bundled README**. All instructions are h
 3. Insert the USB stick with the player fully powered off, then power on.
 4. Read **`UOPfree-install-result.txt`** on the stick. `INSTALLED`, `UPGRADED` and `ALREADY_INSTALLED` are success states; for failures read `UOPfree-install.log`.
 5. Remove the USB stick and perform another full power cycle to activate the new startup entry.
-6. Test STOP on a representative Blu-ray that normally enforces UOP restrictions.
+6. Check a representative UOP-restricted sequence after reboot; STOP is the control documented in the live hardware tests.
 
 After a successful install, the tray may open automatically. **Tray movement is only a convenience signal, not proof of success**: always check the result file.
 
@@ -86,7 +86,7 @@ Experienced SSH/Telnet users can inspect the volatile runtime log:
 cat /tmp/UOPfree.log
 ```
 
-A successful first RAM application ends with `UOPfree_1.0.0 RESULT=PASS RAM_ONLY_FILES_UNCHANGED`. If mode 1 was already active, `RESULT=ALREADY_ENABLED` is also valid. The install ZIP includes `CHECK_READONLY.sh` for a separate **post-install, read-only** file/launcher integrity check; it does not validate STOP behavior.
+A successful first RAM application ends with `UOPfree_1.0.0 RESULT=PASS RAM_ONLY_FILES_UNCHANGED`. If mode 1 was already active, `RESULT=ALREADY_ENABLED` is also valid. The install ZIP includes `CHECK_READONLY.sh` for a separate **post-install, read-only** file/launcher integrity check; it does not validate disc playback behavior.
 
 ## Documentation
 

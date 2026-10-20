@@ -1,6 +1,6 @@
 # Release engineering and reproducibility
 
-UOPfree 1.0.0 publishes **two distinct USB AutoScript archives**, one for installation and one for removal. The canonical GitHub README is in the repository; neither USB archive contains `README.md`. Each has its own `SHA256SUMS_RELEASE`, while the GitHub Release attaches a separate outer `SHA256SUMS` for the two whole ZIPs.
+UOPfree 1.0.0 publishes **two distinct USB AutoScript archives**, one for installation and one for removal. Each package has its own `SHA256SUMS_RELEASE` manifest, while the GitHub Release attaches an outer `SHA256SUMS` for both whole ZIPs.
 
 ## Installer archive
 
@@ -28,15 +28,9 @@ The installer validates its USB payload, overlay/autostart ownership, safe upgra
 
 The uninstaller has a distinct launcher, ID and script; it only removes known UOPfree files and startup lines. A full reboot is needed to clear the current live player's UOP value.
 
-## Exactly what changed during README removal
+## Payload and archive integrity
 
-| Member | Supplied ZIP | README-free release ZIP |
-| --- | --- | --- |
-| `README.md` | Present | **Removed** |
-| `SHA256SUMS_RELEASE` | Included checksum of README | Same other hashes; removed that one line |
-| All other files | Verified source bytes | **Identical bytes and identical compressed data** |
-
-The preserved file entries retain CRCs, exact uncompressed contents, original compressed deflate data, timestamps and UNIX permissions. The regenerated outer archive hashes necessarily differ from the supplied originals. No executable or control-flow changes were made.
+The released shell scripts, AutoScript launchers, identifiers and read-only checker retain the exact functional bytes verified from the supplied working payloads. Archive members preserve their original compressed data, timestamps, CRCs and permissions. The published ZIP and manifest hashes are fixed; no executable or control-flow changes were made during release preparation.
 
 ## Repeatable source build and QA
 

@@ -31,7 +31,7 @@ Do not combine installation and uninstallation `AutoScript/` folders.
 1. Fully power off the OPPO, insert the removal USB and start the player.
 2. Inspect `UOPfree-uninstall-result.txt` on the USB stick. Only **`UNINSTALLED`** confirms complete removal. If `FAILED`, consult `UOPfree-uninstall.log` before taking further action.
 3. Remove the USB stick and **fully power-cycle the OPPO**. The reboot clears any mode-1 UOP state left in the previous `bdpprog.1` process.
-4. Test a formerly UOP-locked section if you want to confirm that ordinary disc-enforced STOP restrictions have returned.
+4. Test a familiar UOP-restricted section if you want to confirm that the player's normal disc-authored restrictions have returned.
 
 Tray ejection is requested only after a successful result is written and synced. It is not a substitute for checking the result file.
 

@@ -1,10 +1,10 @@
 # Frequently asked questions
 
-**What does UOPfree fix?**  On tested Blu-ray material, it makes the STOP button work in sequences where disc-level User Operation Prohibition would normally block it.
+**What does UOPfree do?**  It enables the player's UOP-free RAM mode to bypass applicable disc-authored User Operation Prohibitions. Unlocking STOP in restricted Blu-ray sequences is a confirmed example, not the entire purpose of the modification.
 
 **Does this automatically skip every logo or advertisement?**  No. It changes the internal UOP mask; it does not create a missing NEXT chapter, change a BD-J navigation handler, or jump to a new playlist.
 
-**Does it work with ISO and BDMV?**  The maintainer confirmed STOP behavior on tested physical discs, ISO images and BDMV folders. UOPfree does not provide ISO/BDMV mounting or other virtual-media infrastructure.
+**Does it work with ISO and BDMV?**  UOPfree changes the running player's UOP mode. The maintainer confirmed STOP as a tested example on physical discs, ISO images and BDMV folders. UOPfree does not supply ISO/BDMV mounting or other virtual-media infrastructure.
 
 **Does it modify firmware or replace `bdpprog.1`?**  No. The one-shot runtime writes a four-byte data value in the compatible live process and exits. Installation separately appends two lines to the existing `jb_overlay/autostart.sh`.
 
@@ -16,11 +16,9 @@
 
 **Why is a reboot needed after installation?**  The installer creates the startup entry. A full power cycle executes it as part of the usual overlay startup path.
 
-**Why does uninstalling not immediately restore STOP restrictions?**  The uninstaller does not write running player memory. A full reboot clears the previously changed volatile UOP state.
+**Why do UOP restrictions not return immediately after uninstall?**  The uninstaller does not write running player memory. A full reboot clears the previously changed volatile UOP state.
 
 **Does opening the disc tray mean success?**  No. The USB `*-result.txt` is authoritative; tray eject is only an optional success indication.
-
-**Why do the downloads not contain README.md?**  Instructions are maintained here on GitHub. The USB ZIPs contain only the necessary AutoScript payload and integrity manifest.
 
 **Can I install by downloading GitHub's Source code ZIP?**  No. Use the separate installation and uninstallation assets on the tagged GitHub Release.
 

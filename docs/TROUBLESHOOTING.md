@@ -53,9 +53,9 @@ cat /tmp/UOPfree.log
 
 A successful readback confirms the internal RAM value; it is **not** universal certification of behavior on all discs.
 
-## 5. The runtime passes, but STOP is still unavailable
+## 5. The runtime passes, but an operation remains restricted
 
-A disc or BD-J application may enforce other controls outside the native UOP mask. A short clip may have no next chapter, so NEXT/SKIP cannot be guaranteed. Check a representative known UOP-locked title and whether another runtime modification has changed the UOP state. The intentionally one-shot design does not monitor it thereafter.
+UOPfree changes the internal UOP mask; discs or BD-J applications may impose separate navigation rules. A short clip may have no next chapter, so NEXT/SKIP cannot be guaranteed. Check a known UOP-restricted sequence and whether another runtime modification has reset the UOP state. The intentionally one-shot design does not monitor it thereafter.
 
 There was a conditional reset reported during a concurrent experimental patch/resume-cancellation scenario; that has not been established as a defect of UOPfree in a clean supported startup. See [Known limitations](research/KNOWN_LIMITATIONS.md).
 

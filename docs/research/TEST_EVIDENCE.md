@@ -1,4 +1,4 @@
-# Test evidence: UOP mode, STOP and package behavior
+# Test evidence: UOP mode, playback controls and package behavior
 
 This is a curated list of evidence from the development handoff plus the maintainer's current release report. It distinguishes a real-device behavior observation from a packaging/test-run result and from unsupported generalizations.
 
@@ -15,7 +15,7 @@ This is a curated list of evidence from the development handoff plus the maintai
 | BDMV folder playback | Hardware playback | STOP available in tested material |
 | Final named installation/removal operation | Maintainer confirmation | Reported live tested; not every final branch log preserved in the written handoff |
 | Installed script / installer / uninstaller byte identity | Offline source/ZIP comparison | Exact retained payload member bytes match supplied archives |
-| README-free ZIPs and internal manifests | Fresh offline verification | CRC PASS; installer 5/5 and uninstaller 3/3 file hashes |
+| Release ZIPs and internal manifests | Fresh offline verification | CRC PASS; installer 5/5 and uninstaller 3/3 file hashes |
 | Fully independent release build from source | Fresh offline verification | Both outer SHA-256 values reproduced exactly |
 
 ## Important negative / conditional result
@@ -28,6 +28,6 @@ During **concurrent experimental player-memory patching** and disc resume cancel
 - It does not promise NEXT/SKIP when a clip lacks an alternate chapter or playlist navigation.
 - The mode mapping and addresses are based on one supported firmware environment, not an official universal API.
 - A successful CRC/hash/source rebuild does not replace USB boot or playback testing on physical hardware.
-- Removing README changes the outer ZIP bytes and SHA-256 identity. Although all functional files are identical, no additional physical USB-boot test was performed *as part of this packaging operation*.
+- The published archive identities and functional payload bytes were verified offline. This does not constitute an additional physical USB-boot test of the final release archives.
 
 Future reports should state the exact disc/source, firmware environment, before/after UOP value, runtime result, timing of player startup and whether any simultaneous mod was active. See [Evidence register](EVIDENCE_REGISTER.md) and [Known limitations](KNOWN_LIMITATIONS.md).

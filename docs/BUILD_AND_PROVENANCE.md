@@ -30,16 +30,9 @@ python3 tools/verify_release.py ./dist/UOPfree-1.0.0-install.zip ./dist/UOPfree-
 
 The build scripts do **not** execute any UOP code, modify a player, require a firmware image or produce a new firmware binary.
 
-## Original upload to README-free packaging
+## Published release identities
 
-The maintainer supplied these source archives:
-
-| Supplied archive | Size | SHA-256 |
-| --- | ---: | --- |
-| Installer with README | 9,087 bytes | `d376e96eff9591a1696394b33c3372aaa23db6859226707f9bd474d813e82856` |
-| Uninstaller with README | 4,689 bytes | `b6c417d5dd0f88d65815956d6f853527c3c9e3dc18c0056af745a44a1e49e555` |
-
-Only their redundant `README.md` members were removed and `SHA256SUMS_RELEASE` updated. All other members remain unchanged, including their compressed data bytes. These are the nominated final GitHub Release identities:
+The two published USB archives preserve the verified functional script bytes and are independently checked against the repository source:
 
 ```text
 60e8efc29b7a9e723b371d0e30a30e20bf98fee0baee9c1e529fed80253ab3fa  UOPfree-1.0.0-install.zip

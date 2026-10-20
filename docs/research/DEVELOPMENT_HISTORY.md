@@ -4,7 +4,7 @@ This report summarizes the project's important findings and decisions without in
 
 ## 1. Avoid replacing the native player
 
-The project began with a simple user requirement: **STOP should work during otherwise locked Blu-ray intros and notices**. Editing the native `bdpprog.1` file or storing another ~19.4 MB player binary would introduce unacceptable compatibility and recovery risk. The chosen scope was a tiny, reversible RAM-only operation combined with one overlay startup entry.
+The project began with a practical example of the broader goal: **bypassing disc-authored UOP restrictions**, notably when STOP was blocked during Blu-ray intros and notices. Editing the native `bdpprog.1` file or storing another ~19.4 MB player binary would introduce unacceptable compatibility and recovery risk. The chosen scope was a tiny, reversible RAM-only operation combined with one overlay startup entry.
 
 ## 2. Native command-line attempt did not establish success
 
@@ -30,7 +30,7 @@ In one experiment involving another active player-memory modification, cancellin
 
 The public product name became **UOPfree**, installed at `/mnt/ubi_boot/UOPfree/start.sh` and launched from an exact lowercase `#UOPfree` marker. A prior known marker casing can be normalized safely without duplicate startup lines. The runtime's executable logic, memory address, checks, bytes and control flow were preserved while descriptions and log labels were given final product wording.
 
-Separate guarded installation/removal AutoScripts stage backups, verify known hashes, refuse unknown files, emit USB results and request tray eject only on success. The maintainer reports final mod operation live-tested. For the GitHub release, the redundant README was removed from each USB archive; **all functional ZIP member bytes remain unchanged**, and the exact new archive identities were verified offline.
+Separate guarded installation/removal AutoScripts stage backups, verify known hashes, refuse unknown files, emit USB results and request tray eject only on success. The maintainer reports final mod operation live-tested. The published USB archives preserve **all functional payload bytes**, and their fixed archive identities were verified offline.
 
 ## 8. Non-goals retained
 
