@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'docs/RELEASE_NOTES_1.0.0.md'
+      - '.github/workflows/finalize-v1.0.0-docs.yml'
   workflow_dispatch:
 
 permissions:
@@ -17,7 +18,9 @@ concurrency:
 
 jobs:
   finalize:
-    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'docs: describe UOPfree as UOP bypass and streamline release text'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.head_commit.message == 'ci: repair one-time release finalizer'
     runs-on: ubuntu-24.04
     steps:
       - name: Check out matching main revision
