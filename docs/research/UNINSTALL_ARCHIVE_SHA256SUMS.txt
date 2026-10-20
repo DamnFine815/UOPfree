@@ -1,0 +1,3 @@
+fa4e3a4e8654431550940a3816ee267173ceeaf004fdd35f15e8c9283890ac4a  AutoScript/AutoScript.TSS
+59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03  AutoScript/UOPfree-uninstall.id
+df33cf3bc99a9680e899aebdee9976a25a856cddad5ff0dead0086054359cd0f  AutoScript/UOPfree-uninstall.sh

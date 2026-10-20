@@ -1,0 +1,8 @@
+#MTKAT 0.xx script
+
+SLEEPMS(1000)
+CLI(CLI_exec rm -f /tmp/UOPfree-uninstall.sh)
+CLI(CLI_exec cp /mnt/sd*/AutoScript/UOPfree-uninstall.sh /tmp/UOPfree-uninstall.sh)
+CLI(CLI_exec chmod 755 /tmp/UOPfree-uninstall.sh)
+CLI(CLI_exec /tmp/UOPfree-uninstall.sh)
+CLI(CLI_exec sync)

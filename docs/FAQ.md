@@ -1,0 +1,27 @@
+# Frequently asked questions
+
+**What does UOPfree fix?**  On tested Blu-ray material, it makes the STOP button work in sequences where disc-level User Operation Prohibition would normally block it.
+
+**Does this automatically skip every logo or advertisement?**  No. It changes the internal UOP mask; it does not create a missing NEXT chapter, change a BD-J navigation handler, or jump to a new playlist.
+
+**Does it work with ISO and BDMV?**  The maintainer confirmed STOP behavior on tested physical discs, ISO images and BDMV folders. UOPfree does not provide ISO/BDMV mounting or other virtual-media infrastructure.
+
+**Does it modify firmware or replace `bdpprog.1`?**  No. The one-shot runtime writes a four-byte data value in the compatible live process and exits. Installation separately appends two lines to the existing `jb_overlay/autostart.sh`.
+
+**Does it run continuously?**  No. It waits for the player at boot, validates the environment, sets the mode once, reads it back and exits.
+
+**Will it affect other mods?**  It does not intentionally edit other mods or their startup lines. As with any modification to a shared running process, concurrent memory changes can interact; combinations are not all comprehensively tested.
+
+**Is there a configuration file?**  No. UOPfree 1.0.0 has no user settings or permanent daemon.
+
+**Why is a reboot needed after installation?**  The installer creates the startup entry. A full power cycle executes it as part of the usual overlay startup path.
+
+**Why does uninstalling not immediately restore STOP restrictions?**  The uninstaller does not write running player memory. A full reboot clears the previously changed volatile UOP state.
+
+**Does opening the disc tray mean success?**  No. The USB `*-result.txt` is authoritative; tray eject is only an optional success indication.
+
+**Why do the downloads not contain README.md?**  Instructions are maintained here on GitHub. The USB ZIPs contain only the necessary AutoScript payload and integrity manifest.
+
+**Can I install by downloading GitHub's Source code ZIP?**  No. Use the separate installation and uninstallation assets on the tagged GitHub Release.
+
+See [Installation](INSTALLATION.md), [Uninstallation](UNINSTALLATION.md) and [Troubleshooting](TROUBLESHOOTING.md).
