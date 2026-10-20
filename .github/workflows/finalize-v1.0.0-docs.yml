@@ -1,0 +1,61 @@
+name: One-time - finalize UOPfree v1.0.0 documentation
+
+# Only the nominated documentation update runs automatically. Manual re-run is possible.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/RELEASE_NOTES_1.0.0.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: UOPfree-finalize-v1.0.0-docs
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'docs: describe UOPfree as UOP bypass and streamline release text'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out matching main revision
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Update only v1.0.0 source tag and release description
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_OLD_TAG_SHA: 8c8357727ec422e577cbaebafa9ff88a22360ca3
+          RELEASE_ID: '418911412'
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_REF" == "refs/heads/main" ]] || { echo "::error::Select main."; exit 1; }
+          target="$(git rev-parse HEAD)"
+          live_main="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [[ "$target" != "$GITHUB_SHA" || "$target" != "$live_main" ]]; then
+            echo "::error::main changed during finalization. Review before retrying."
+            exit 1
+          fi
+          current="$(git ls-remote origin refs/tags/v1.0.0 | awk '{print $1}')"
+          if [[ "$current" != "$EXPECTED_OLD_TAG_SHA" && "$current" != "$target" ]]; then
+            echo "::error::Release tag changed unexpectedly. Refusing to rewrite."
+            exit 1
+          fi
+          if [[ "$current" == "$EXPECTED_OLD_TAG_SHA" ]]; then
+            git tag -f v1.0.0 "$target"
+            git push --force-with-lease="refs/tags/v1.0.0:$EXPECTED_OLD_TAG_SHA" origin refs/tags/v1.0.0:refs/tags/v1.0.0
+          fi
+          [[ "$(git ls-remote origin refs/tags/v1.0.0 | awk '{print $1}')" == "$target" ]] || exit 1
+
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" \
+            --raw-field body="$(cat docs/RELEASE_NOTES_1.0.0.md)" \
+            --silent
+          actual="$(gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" --jq '.body')"
+          expected="$(cat docs/RELEASE_NOTES_1.0.0.md)"
+          [[ "$actual" == "$expected" ]] || { echo "::error::Published release notes do not match the file."; exit 1; }
+          echo "FINAL_RELEASE_DOCS=PASS tag=$target assets=UNTOUCHED"
