@@ -20,7 +20,7 @@ jobs:
   finalize:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event.head_commit.message == 'ci: repair one-time release finalizer'
+      github.event.head_commit.message == 'docs: clarify UOPfree STOP MENU NEXT examples'
     runs-on: ubuntu-24.04
     steps:
       - name: Check out matching main revision
@@ -33,7 +33,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          EXPECTED_OLD_TAG_SHA: 8c8357727ec422e577cbaebafa9ff88a22360ca3
+          EXPECTED_OLD_TAG_SHA: 55e8e660537113d5ea17fefe7a00d753dae42851
           RELEASE_ID: '418911412'
         run: |
           set -euo pipefail

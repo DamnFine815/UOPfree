@@ -4,8 +4,9 @@
 
 ## Highlights
 
-- One-shot **RAM-only** activation of the player's built-in UOP-free mode to bypass applicable disc-authored operation restrictions.
-- **STOP** is a confirmed example on tested **physical Blu-ray Discs, ISO images and BDMV folders**. Other operations depend on disc navigation and BD-J logic; missing chapter targets cannot be created.
+- Lightweight, one-shot **RAM-only UOP bypass** for disc-authored restrictions on playback controls.
+- **STOP, MENU and NEXT** are maintainer-confirmed examples where UOP-based restrictions were bypassed: STOP during locked intros, MENU on an opening license/notice screen and NEXT to skip UOP-blocked introductory cards.
+- STOP was tested on **physical Blu-ray Discs, ISO images and BDMV folders**. MENU and NEXT are later reported live examples whose media types were not separately documented. NEXT still needs a valid navigation destination, and independent BD-J logic is not altered.
 - Checks the player process, executable size, exact memory mappings and an original **12-byte code signature** before the 4-byte RAM write.
 - No replacement `bdpprog.1`, firmware image, code modification, resident polling daemon or interference with other startup entries.
 - Small UBI footprint: one `start.sh` and a guarded two-line `jb_overlay/autostart.sh` entry.
