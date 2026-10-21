@@ -101,3 +101,7 @@ A successful first RAM application ends with `UOPfree_1.0.0 RESULT=PASS RAM_ONLY
 ## Development and independence
 
 The readable shell-side runtime, AutoScript install/uninstall launchers and offline release builder are included in this repository. The published ZIPs can be reproduced byte-for-byte from these source files; see [Build and provenance](docs/BUILD_AND_PROVENANCE.md). UOPfree is independent of OPPO Digital and is not affiliated with or endorsed by the manufacturer. See [License status](LICENSE-STATUS.md).
+
+## Acknowledgments
+
+Special thanks to **theaxledentaldj** from AVForums for his valuable help, technical discussions, and support throughout the development.
