@@ -1,5 +1,7 @@
 # License status
 
-UOPfree is an independently developed community modification for the OPPO UDP-203 RU-JB 65-0131 environment. No general open-source license has been selected for this repository; publishing source and download ZIPs does not by itself grant third parties unrestricted redistribution rights.
+The original UOPfree shell code, integration scripts, build tools and documentation are available under the **[MIT License](LICENSE)** (copyright 2026 Florian Kecht).
 
-OPPO firmware and trademarks belong to their respective owners. UOPfree does not bundle a full player image or firmware dump, and is not affiliated with OPPO Digital. See [Project origin](docs/LEGAL_AND_LICENSING.md).
+The author permits integration into other projects, including [oppo-dv-mkv](https://github.com/fandangos/oppo-dv-mkv), with the MIT copyright and permission notice retained. UOPfree is implemented as shell scripts and does not bundle the OPPO player or a third-party firmware image.
+
+This grant applies only to code and documentation over which the author holds the relevant rights; it does not convey rights to OPPO firmware, trademarks, or other external components. See [Project origin](docs/LEGAL_AND_LICENSING.md).
