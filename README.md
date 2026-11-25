@@ -98,6 +98,10 @@ A successful first RAM application ends with `UOPfree_1.0.0 RESULT=PASS RAM_ONLY
 - [Release engineering](docs/research/RELEASE_ENGINEERING.md), [Source build and provenance](docs/BUILD_AND_PROVENANCE.md)
 - [External references](docs/SOURCES.md), [Release notes](docs/RELEASE_NOTES_1.0.0.md)
 
+## License and downstream integration
+
+Original UOPfree scripts, tools and documentation are released under the [MIT License](LICENSE). The author explicitly permits inclusion in [oppo-dv-mkv](https://github.com/fandangos/oppo-dv-mkv), including a separate On/Off option, with the MIT notice retained. The project does not grant rights in OPPO firmware or other third-party material. See [License status](LICENSE-STATUS.md).
+
 ## Development and independence
 
 The readable shell-side runtime, AutoScript install/uninstall launchers and offline release builder are included in this repository. The published ZIPs can be reproduced byte-for-byte from these source files; see [Build and provenance](docs/BUILD_AND_PROVENANCE.md). UOPfree is independent of OPPO Digital and is not affiliated with or endorsed by the manufacturer. See [License status](LICENSE-STATUS.md).
